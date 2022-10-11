@@ -18,7 +18,14 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script>
-       
+        let num1 = parseInt($('p').eq(0).text())
+        let num2 = parseInt($('p').eq(1).text())
+
+        $('p.plus').html(num1 + num2)
+        $('p.minus').html(num1 - num2)
+        $('p.multiply').html(num1 * num2)
+        $('p.divide').html(num1 / num2)
+        
     </script>
 </body>
 </html>
