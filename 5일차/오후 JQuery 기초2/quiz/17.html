@@ -10,41 +10,81 @@
     <input type="number">
     <input type="number">
     <button id="plus">+</button>
-    <button id="minuse">-</button>
+    <button id="minus">-</button>
     <button id="multiply">x</button>
     <button id="divide">/</button>
     <div>0</div>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
     <script>
-        
+
+        let num1 = ''
+        let num2 = ''
+
         function isEmpty(val1, val2) {
-            if ((val1 || val2) === '') {
-                return true
-            } else {
-                return false
-            }
+            return ((val1 || val2) === '')
         }
 
-
-        $('#plus').click(function() {
-
-            let inputArray = $('input')
-            let num1 = parseInt(inputArray.eq(0))
-            let num2 = parseInt(inputArray.eq(1))
-
-            console.log(num1, num2)
+        $('button').click(function() {
+            let num1 = parseInt($('input').eq(0).val())
+            let num2 = parseInt($('input').eq(1).val())
 
             if (isEmpty(num1, num2)) {
                 alert("두 값을 입력해 주세요")
-            } else {
-                $('div').text(num1 + num2)
             }
         })
 
-        
+        $('#plus').click(function() {
+            $('div').text(num1 + num2)
+        })
+
+
         // $('#plus').click(function() {
-        //     $('div').text(num1 + num2);
+
+        //     let num1 = parseInt($('input').eq(0).val())
+        //     let num2 = parseInt($('input').eq(1).val())
+
+        //     if (isEmpty(num1, num2)) {
+        //         alert("두 값을 입력해 주세요")
+        //     } else {
+        //         $('div').text(num1 + num2)
+        //     }
+        // })
+
+        // $('#minus').click(function() {
+
+        //     let num1 = parseInt($('input').eq(0).val())
+        //     let num2 = parseInt($('input').eq(1).val())
+
+        //     if (isEmpty(num1, num2)) {
+        //         alert("두 값을 입력해 주세요")
+        //     } else {
+        //         $('div').text(num1 - num2)
+        //     }
+        // })
+
+        // $('#multiply').click(function() {
+
+        //     let num1 = parseInt($('input').eq(0).val())
+        //     let num2 = parseInt($('input').eq(1).val())
+
+        //     if (isEmpty(num1, num2)) {
+        //         alert("두 값을 입력해 주세요")
+        //     } else {
+        //         $('div').text(num1 * num2)
+        //     }
+        // })
+
+        // $('#divide').click(function() {
+
+        //     let num1 = parseInt($('input').eq(0).val())
+        //     let num2 = parseInt($('input').eq(1).val())
+
+        //     if (isEmpty(num1, num2)) {
+        //         alert("두 값을 입력해 주세요")
+        //     } else {
+        //         $('div').text(num1 / num2)
+        //     }
         // })
 
     </script>
