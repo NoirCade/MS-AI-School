@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p style="background-color: green;">배경색을 변경하세요</p>
+    <button>CLICK</button>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <script>
+        
+        // $('button').click(function() {
+        //     let colorNow = $('p').attr("style");
+
+        //     if (colorNow == "background-color: green;") {
+        //         $('p').css("background-color", "red");
+        //     } else if (colorNow = "background-color: red;") {
+        //         $('p').css("background-color", "green");
+        //     }
+        // })
+
+        $('button').click(function() {
+            let isGreen = Boolean($('p').attr('style') == 'background-color: green;')
+
+            if (isGreen) {
+                $('p').css('background-color', 'red');
+                isGreen = false;
+
+            } else {
+                $('p').css('background-color', 'green');
+                isGreen = true;
+            }
+        })
+    </script>
+</body>
+</html>
