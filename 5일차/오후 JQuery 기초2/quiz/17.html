@@ -17,17 +17,28 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
     <script>
-        let num1 = '';
-        let num2 = '';
+        
+        function isEmpty(val1, val2) {
+            if ((val1 || val2) === '') {
+                return true
+            } else {
+                return false
+            }
+        }
 
-        $('button').click(function() {
-            num1 = parseInt($('input').eq(0));
-            num2 = parseInt($('input').eq(1));
 
-            console.log(num1)
+        $('#plus').click(function() {
 
-            if (num1 || num2 == '') {
+            let inputArray = $('input')
+            let num1 = parseInt(inputArray.eq(0))
+            let num2 = parseInt(inputArray.eq(1))
+
+            console.log(num1, num2)
+
+            if (isEmpty(num1, num2)) {
                 alert("두 값을 입력해 주세요")
+            } else {
+                $('div').text(num1 + num2)
             }
         })
 
