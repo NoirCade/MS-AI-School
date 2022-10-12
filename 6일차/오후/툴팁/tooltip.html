@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>tooltip</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+<ul>
+    <li class="showBalloon" title="HTML문서 구조를 작성할 때 사용하는 언어">HTML</li>
+    <li class="showBalloon" title="CSS 스타일링">CSS</li>
+    <li class="showBalloon" title="인터렉티브 기능을 작성할 때 사용">JAVASCRIPT</li>
+    <li class="showBalloon" title="인공지능 기술의 하나">딥러닝</li>
+    <li class="showBalloon" title="임베디드 소프트웨어">사물인터넷</li>
+    <li class="showBalloon" title="HTML문서 구조를 작성할 때 사용하는 언어">HTML</li>
+    <li class="showBalloon" title="CSS 스타일링">CSS</li>
+    <li class="showBalloon" title="인터렉티브 기능을 작성할 때 사용">JAVASCRIPT</li>
+    <li class="showBalloon" title="인공지능 기술의 하나">딥러닝</li>
+    <li class="showBalloon" title="임베디드 소프트웨어">사물인터넷</li>
+    <div class="balloon"></div>
+</ul>
+
+<script>
+    let liEl = $('li')
+    // liEl.hover(function(e) {
+    //     setHover($(this), 1);
+    // }, function(e){
+    //     setHover($(this), 0)
+    // })
+    liEl.mouseenter(function(e) {
+        setHover($(this), 1);
+    })
+
+    liEl.mouseleave(function(e) {
+        setHover($(this), 0);
+    })
+
+    liEl.mousemove(function(e) {
+        setHover($(this), 2);
+    })
+
+    function setHover(target, inOut){
+        let mouseX = event.pageX
+        let mouseY = event.pageY
+
+        let desc = target.attr("title")
+        let balEl = $('.balloon')
+
+        if (inOut = 1) {
+            balEl.text(desc)
+            balEl.show()
+            balEl.css({top: mouseY, left: mouseX+10})
+        
+        } else if (inOut = 0) {
+            balEl.hide()
+            balEl.empty()
+
+        } else if (inOut = 2) {
+            balEl.animate({top: mouseY, left: mouseX+10}, 100)
+        }
+    }
+</script>
+</body>
+</html>
