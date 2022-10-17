@@ -24,4 +24,5 @@ while True:
 
         game_count += 1
 
-    except 
+    except:
+        print('올바른 숫자를 입력해주세요')
