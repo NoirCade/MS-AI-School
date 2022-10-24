@@ -1,9 +1,8 @@
 import requests
 from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
+import env2
 
-subscription_key = '9db30db7ded4443daede28de93c47a40'
-face_api_url = 'https://labuser36face.cognitiveservices.azure.com/face/v1.0/detect'
 
 #Class, library, Package는 관례상 대문자
 #지역변수, 파라메타는 관례상 소문자
@@ -14,7 +13,7 @@ face_api_url = 'https://labuser36face.cognitiveservices.azure.com/face/v1.0/dete
 image_url = 'https://image.ajunews.com/content/image/2018/04/19/20180419161753124159.jpg'
 image = Image.open(BytesIO(requests.get(image_url).content))
 
-headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+headers = {'Ocp-Apim-Subscription-Key': env2.subscription_key}
 
 params = {
     'returnFaceID': 'true',
@@ -24,7 +23,7 @@ params = {
 
 data = {'url': image_url}
 
-response = requests.post(face_api_url, params=params, headers=headers, json=data)
+response = requests.post(env2.face_api_url, params=params, headers=headers, json=data)
 faces = response.json()
 
 draw = ImageDraw.Draw(image)
