@@ -13,12 +13,11 @@ import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
 import json
+import env
 
 # Subscription Key와 접속에 필요한 URL을 설정합니다.
 
-subscription_key = 'a6523245b14a49a5988ab0de93c70f0a'
-vision_base_url = 'https://labuser36coumputervision.cognitiveservices.azure.com/vision/v2.0/'
-analyze_url = vision_base_url + 'analyze'
+analyze_url = env.vision_base_url + 'analyze'
 
 # 분석에 사용되는 이미지를 확인 합니다.
 
@@ -29,7 +28,7 @@ image = Image.open(byte)
 
 # 한줄로 작성시 image = Image.open(BytesIO(requests.get(image_url).content))
 
-headers = {'Ocp-Apim-Subscription-key': subscription_key}
+headers = {'Ocp-Apim-Subscription-key': env.subscription_key}
 params  = {'visualFeatures': 'Categories,Description,Color'} # 띄어쓰기 하면 안됨;
 data = {'url': image_url}
 
@@ -46,12 +45,12 @@ image_caption = result['description']['captions'][0]['text']
 
 # Object Detection
 
-objectDetection_url = vision_base_url + 'detect'
+objectDetection_url = env.vision_base_url + 'detect'
 
 image_url2 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyDNKi6WBrnQ4GIK0VUm648Rpbqp063CMSlw&usqp=CAU'
 image2 = Image.open(BytesIO(requests.get(image_url2).content))
 
-headers2 = {'Ocp-Apim-Subscription-key': subscription_key}
+headers2 = {'Ocp-Apim-Subscription-key': env.subscription_key}
 params2  = {'visualFeatures': 'Categories,Description,Color'} # 띄어쓰기 하면 안됨;
 data2 = {'url': image_url2}
 
