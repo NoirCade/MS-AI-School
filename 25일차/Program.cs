@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 using System.Timers;
 using Microsoft.Azure.Devices.Client;
 using Newtonsoft;
+using IoTenv;
 
 namespace IoTClient
 {
     internal class Program
     {
         private static System.Timers.Timer SensorTimer;
-        private const string DeviceConnectionString = "HostName=labuser36IoT.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=spO1nAJ0UrnqkvHdnbTxsJj4RBIv8C4zq6pQNHBpmi8=";
+        private const string DeviceConnectionString = IoTenv.DeviceConnectionString;
         private const string DeviceID = "Device1";
         private static DeviceClient SensorDevice = null;
 
