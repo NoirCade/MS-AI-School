@@ -49,20 +49,42 @@ namespace IoTClient
             SensorTimer.Enabled = true;
         }
 
-        private static void SensorTimer_Elapsed(object sender, ElapsedEventArgs e)
+        private static async void SensorTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
             Console.WriteLine("The Elapsed event was raised at {0:HH:mm:ss:fff}", e.SignalTime);
             // e.Signaltime 객체에 위에서 이벤트가 발생할 때의 시간이 기록됨
-            SendEvent();
+            await SendEvent();
+            await ReceiveCommands();
         }
 
-        private static async void SendEvent()
+        private static async Task SendEvent()
         {
             WeatherModel model = DummySensor.GetWeatherModel(DeviceID);
 
             string json = Newtonsoft.Json.JsonConvert.SerializeObject(model);
 
             Console.WriteLine(json);
+
+            Message message = new Message(Encoding.UTF8.GetBytes(json));
+            await SensorDevice.SendEventAsync(message);
+            // 비동기적으로 작동하는 메소드는 반드시 await로 실행해야함
+        }
+
+        private static async Task ReceiveCommands()
+        // 혹시 자신이 수신한 메세지가 있는지 확인
+        {
+            Message receivedMessage;
+            string messageData;
+
+            receivedMessage = await SensorDevice.ReceiveAsync(TimeSpan.FromSeconds(1));
+
+            if (receivedMessage != null)
+            {
+                messageData = Encoding.ASCII.GetString(receivedMessage.GetBytes());
+                Console.WriteLine("\t{0}> Received message: {1}", DateTime.Now.ToLocalTime(), messageData);
+
+                await SensorDevice.CompleteAsync(receivedMessage);
+            }
         }
     }
 }
