@@ -17,6 +17,7 @@
 35일차/house_prices.csv
 40일차/purchase.csv
 44일차/*.csv
+*.png
 datasets
 __pycache__
 data
