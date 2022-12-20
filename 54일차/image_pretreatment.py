@@ -48,7 +48,7 @@ def image_processing(orange_data, grapefruit_data, kanpei_data, dekopon_data):
         full_fruit_path = natsort.natsorted(glob.glob(os.path.join(resized_fruit_path, '*.png')))
 
         fruit_train, fruit_temp = train_test_split(full_fruit_path, test_size=0.1, random_state=77)
-        print(fruit_name, ' train data >> ', len(fruit_train))
+        print('===== ', fruit_name, ' train data >> ', len(fruit_train))
         fruit_val, fruit_test = train_test_split(fruit_temp, test_size=0.5, random_state=77)
         print(fruit_name, ' val data >> ', len(fruit_val))
         print(fruit_name, ' test data >> ', len(fruit_test))

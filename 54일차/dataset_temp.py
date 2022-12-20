@@ -3,7 +3,14 @@ from torch.utils.data import Dataset
 from PIL import Image
 import os
 
-label_dict = {'dekopon': 0, 'grapefruit': 1, 'kanpei': 2, 'ornage': 3}
+'''
+오렌지: Orange
+자몽: Grapefruit
+레드향: Kanpei
+한라봉: Dekopon
+'''
+
+label_dict = {'오렌지': 0, '자몽': 1, '레드향': 2, '한라봉': 3}
 
 class custom_dataset(Dataset):
     def __init__(self, image_file_path, transform=None):
@@ -17,7 +24,9 @@ class custom_dataset(Dataset):
         image = Image.open(image_path)
         label_temp = image_path.split('\\')[1]
         label = label_dict[label_temp]
-        print(label)
+
+        if self.transform is not None:
+            image = self.transform(image=image)['image']
 
         return image, label
 
