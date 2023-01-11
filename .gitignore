@@ -18,6 +18,7 @@
 40일차/purchase.csv
 44일차/*.csv
 57일차/model_save
+57일차/data
 *.png
 datasets
 __pycache__
