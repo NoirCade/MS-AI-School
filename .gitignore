@@ -21,5 +21,4 @@
 *.png
 datasets
 __pycache__
-data
 .idea
