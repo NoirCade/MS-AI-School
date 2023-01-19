@@ -91,4 +91,3 @@ if __name__ == '__main__':
     num_epochs = 30
     # train(net, criterion, train_loader, val_loader, optimizer, num_epochs, device)
     test(net, test_loader, device)
-    # print(net)

@@ -62,10 +62,7 @@ def cam_recog():
             draw.text((30, 160), f'{acc}', font=font, fill=(b, g, r, a))
             frame = np.array(pil_img)
 
-            # cv2.putText(frame, labels.get(int(top1_label)), (10, 100), cv2.FONT_HERSHEY_DUPLEX, 3, (0, 255, 0), 2)
-            # cv2.putText(frame, acc, (30, 160), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0), 2)
             cv2.imshow("TEST", cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-            # print(time_start)
 
             if cv2.waitKey(100) & 0xFF == ord('q'):
                 break
@@ -74,8 +71,6 @@ def cam_recog():
         cap.release()
         cv2.destroyAllWindows()
     return Accuracy, Label
-
-# real_time_classification()
 
 
 if __name__ == '__main__':

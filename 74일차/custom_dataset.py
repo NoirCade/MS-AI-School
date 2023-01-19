@@ -14,7 +14,6 @@ class customDataset(Dataset):
         self.label_list = os.listdir(root_path)
         for i in range(len(self.label_list)):
             self.label_dict[self.label_list[i]] = int(i)
-        # print(self.label_dict)
 
     def __getitem__(self, item):
         image_path = self.all_path[item]

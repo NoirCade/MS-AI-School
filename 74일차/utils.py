@@ -1,7 +1,6 @@
 import os
 from PIL import Image
 import torch
-from tqdm import tqdm
 import time
 import copy
 
