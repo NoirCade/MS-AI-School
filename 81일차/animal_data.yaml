@@ -1,0 +1,19 @@
+# path
+path: ../dataset/
+train : ./train/images
+val : ./valid/images
+test : ./test/images
+
+# classes
+names :
+  0: animals
+  1: cat
+  2: chicken
+  3: cow
+  4: dog
+  5: fox
+  6: goat
+  7: horse
+  8: person
+  9: racoon
+  10: skunk

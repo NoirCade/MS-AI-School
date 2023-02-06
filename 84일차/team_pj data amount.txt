@@ -1,0 +1,73 @@
+train
+legal
+	bench: 1909
+	fence: 1939
+	park_headstone: 1923
+	park_info: 1924
+	park_pot: 1932
+성환
+
+	rest_area: 1923
+	street_lamp: 1912
+나
+	toilet: 1964
+	trash_can: 1870
+
+legal total: 17296
+
+illegal
+	banner: 2848
+	flame: 2854
+호민
+
+	food_truck: 2875
+나
+	garbage_bag: 2885
+	pet: 5742
+동하
+
+	sit_board: 2859
+	smoke: 2874
+	street_vendor: 2900
+정승
+
+	tent: 2945
+
+
+illegal total: 28782
+train total: 46078
+
+valid
+legal
+	bench: 249
+	fence: 233
+	park_headstone: 251
+	park_info: 234
+	park_pot: 234
+	rest_area: 220
+	street_lamp: 255
+	toilet: 214
+	trash_can: 264
+
+legal total: 2154
+
+illegal
+	banner: 372
+	flame: 377
+	food_truck: 383
+	garbage_bag: 371
+	pet: 712
+	sit_board: 348
+	smoke: 375
+	street_vendor: 340
+	tent: 328
+	
+illegal total: 3606
+valid total: 5760
+
+all data: 51838
+
+
+http://QuickConnect.to/AprilData
+ID: MS_AI_8
+PW: :#n-OND6
